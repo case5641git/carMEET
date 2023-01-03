@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/carMeet', function () {
+    return view('top');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
