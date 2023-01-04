@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/carMeet', function () {
-    return view('top');
-});
+Route::get('carMeet', [EventController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',

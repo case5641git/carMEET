@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -15,7 +16,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $now = Carbon::now();
+        $events = Event::getEventForTop($now);
+        return view('top', compact('events'));
     }
 
     /**
