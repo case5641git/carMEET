@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('content');
             $table->tinyInteger('max_people');
-            $table->boolean('open_flag');
+            $table->boolean('open_flag')->default(false);
             $table->datetime('start_date');
             $table->datetime('end_date');
             $table->timestamps();
