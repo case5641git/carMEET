@@ -19,6 +19,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@tailwindcss/line-clamp": "^0.4.2"
+        "@tailwindcss/line-clamp": "^0.4.2",
+        "vuetify": "^3.0.6"
     }
 }

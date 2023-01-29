@@ -11,13 +11,13 @@
     
     <main>
       <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-col text-center w-full mb-20">
+        <div class="container px-5 py-10 mx-auto">
+          <div class="flex flex-col text-center w-full">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">「車好き」ともっと繋がる
             </h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">carMEET は CAR MEETING を主催したい人、参加したい人のためのサービスです。</p>
           </div>
-          <div class="flex flex-wrap -m-4">
+          {{-- <div class="flex flex-wrap -m-4">
             @foreach ($events as $event)
             <div class="lg:w-1/3 sm:w-1/2 p-4">
               <div class="flex relative">
@@ -29,12 +29,12 @@
               </div>
             </div>
             @endforeach
-          </div>
-          <a class="mt-3 text-yellow-500 inline-flex items-center">イベント一覧
+          </div> --}}
+          {{-- <a class="mt-3 text-yellow-500 inline-flex items-center">イベント一覧
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
-          </a>
+          </a> --}}
         </div>
       </section>
 
@@ -84,14 +84,14 @@
             <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
               <h2 class="text-gray-900 text-lg title-font font-medium mb-2">ユーザー登録</h2>
               <p class="leading-relaxed text-base">ユーザー登録、サービス利用に料金は掛かりません。登録していろんなイベントに足を運んでみましょう。</p>
-              <a class="mt-3 text-yellow-500 inline-flex items-center">新規登録
+              <a class="mt-3 text-yellow-500 inline-flex items-center" href="/register">新規登録
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </a>
             </div>
           </div>
-          <button class="flex mx-auto mt-20 text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">新規登録</button>
+          <button class="flex mx-auto mt-20 text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg"><a href="/register">新規登録</a></button>
         </div>
       </section>
     </main>
