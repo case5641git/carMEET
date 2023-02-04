@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('イベント登録') }}
+        {{ __('イベント編集') }}
     </h2>
   </x-slot>
 
@@ -25,7 +25,7 @@
                           <span class="ml-3 text-xl">carMEET</span>
                       </a>
                       <div class="inline-flex items-center w-full">
-                      <h3 class="text-lg font-bold text-neutral-600 l eading-6 lg:text-5xl">イベント登録</h3>
+                      <h3 class="text-lg font-bold text-neutral-600 l eading-6 lg:text-5xl">イベント編集</h3>
                       </div>
                       <div class="mt-4 text-base text-gray-500">
                       </div>
@@ -55,7 +55,7 @@
                     </x-textarea>
                   </div>
                   <div class="flex flex-col mt-4 lg:space-y-2">
-                      <x-jet-button>{{ __('イベント登録') }}</x-jet-button>
+                      <x-jet-button>{{ __('イベント編集') }}</x-jet-button>
                   </div>
               </div>
           </div>
