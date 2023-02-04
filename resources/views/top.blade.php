@@ -11,8 +11,8 @@
     
     <main>
       <section class="text-gray-600 body-font">
-        <div class="container px-5 py-10 mx-auto">
-          <div class="flex flex-col text-center w-full">
+        <div class="container px-5 py-10 mx-auto text-center">
+          <div class="flex flex-col text-center w-full mb-10">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">「車好き」ともっと繋がる
             </h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">carMEET は CAR MEETING を主催したい人、参加したい人のためのサービスです。</p>
@@ -30,11 +30,7 @@
             </div>
             @endforeach
           </div> --}}
-          {{-- <a class="mt-3 text-yellow-500 inline-flex items-center">イベント一覧
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a> --}}
+          <button class="flex mx-auto mt-20 text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg"><a href="{{ route('events') }}">イベント一覧</a></button>
         </div>
       </section>
 

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
@@ -58,6 +59,7 @@ class EventController extends Controller
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'image_path' => 'storage/' . $dir . '/' . $file_name,
+            'user_id' => Auth::id(),
         ]);
 
         return redirect('/');
