@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/carMeet', function () {
-    return view('top');
-});
+Route::get('/', [EventController::class, 'index'])->name('index');
 
 Route::middleware([
     'auth:sanctum',
@@ -30,3 +29,22 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/events', [EventController::class, 'eventList'])->name('events');
+Route::get('/events/detail', function () {
+    return view('event.event-detail');
+})->name('event_detail');
+Route::get('/events/regist', function () {
+    return view('event.event-regist');
+})->name('event_regist');
+Route::get('/events/edit', function () {
+    return view('event.event-edit');
+})->name('event_edit');
+Route::get('/method/organiz', function () {
+    return view('how-to-organiz');
+})->name('how_to_organiz');
+Route::get('/method/join', function () {
+    return view('how-to-join');
+})->name('how-to-join');
+Route::post('/store',[EventController::class, 'store'])->name('events.store');
+Route::get('/events/{id}', [EventController::class, 'show'])->name('event.show');

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
 {
@@ -15,7 +19,16 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $now = Carbon::now();
+        $events = Event::getEventForTop($now);
+        return view('top', compact('events'));
+    }
+
+    public function eventList()
+    {
+        $now = Carbon::now();
+        $eventList = Event::getEventForList($now);
+        return view('event.events', compact('eventList'));
     }
 
     /**
@@ -31,23 +44,36 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreEventRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request $request
      */
-    public function store(StoreEventRequest $request)
+    public function store(Request $request)
     {
-        //
+        $dir = 'event';
+        $file_name = $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public/' . $dir, $file_name);
+
+        Event::create([
+            'name' => $request->name,
+            'content' => $request->content,
+            'max_people' => $request->max_people,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'image_path' => 'storage/' . $dir . '/' . $file_name,
+            'user_id' => Auth::id(),
+        ]);
+
+        return redirect('/');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response
+     * @param int $id
      */
-    public function show(Event $event)
+    public function show(int $id)
     {
-        //
+        $event = Event::find($id);
+        return view('event.event-detail', compact('event'));
     }
 
     /**
